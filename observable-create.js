@@ -3,6 +3,13 @@
 // an observer waits for each apple to arrive
 // the conveyor belt needs to be started and stoped
 
+// to create a new observable we must pass an function as a paramter
+// this function takes an observer as a parameter
+// the observer has 3 optional properties or methods
+// using the observer we can the .next property to send an element
+// using the observe do something on .complete
+// the observer is an object with 3 properties, next error complete
+// myObserver = {next: , error: , complete: }
 const myObservable = new Observable(  (observer) => {
     observer.next('first apple');
     observer.next('second apple');
@@ -16,6 +23,7 @@ const myObserver = {
     complete: () => {console.log('completed')} //optional parameter: do something when the stream finishes
 }
 
+// a constant hold the subscription to unsuscribe later
 const mySubscription = myObservable.subscribe(myObserver); // start the stream with the subscribe method
 // some operators unsuscribe from the observable after competion
 // unsubscribe method stops the stream of elements
